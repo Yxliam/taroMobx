@@ -1,4 +1,4 @@
-import Taro from "@tarojs/taro";
+import Taro, { hideToast } from "@tarojs/taro";
 import config from "../config/index";
 function formatNumber(n) {
   n = n.toString();
@@ -51,11 +51,11 @@ const helper = {
       ...{
         method: method,
         url: URL,
-        data: data,
-        header: {
-          authorization: helper.getSession(),
-          appid: helper.config("appId")
-        }
+        data: data
+        // header: {
+        //   authorization: helper.getSession(),
+        //   appid: helper.config("appId")
+        // }
       }
     };
   },
@@ -73,6 +73,34 @@ const helper = {
   },
   setSession(value) {
     Taro.setStorageSync(sessionKey, value);
+  },
+
+  ajax(meth) {
+    return new Promise((resolve, reject) => {
+      try {
+        Taro.request(meth).then(res => {
+          switch (res.statusCode) {
+            case 200:
+              resolve(res.data);
+              break;
+            case 401:
+              reject(res.errMsg);
+              helper.toast(res.errMsg);
+              break;
+          }
+        });
+      } catch (e) {
+        reject(e);
+      }
+    });
+  },
+
+  toast(title, icon = "none", duration = "1500") {
+    Taro.showToast({
+      title: title,
+      icon: icon,
+      duration: duration
+    });
   },
 
   getSession() {
