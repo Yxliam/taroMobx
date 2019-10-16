@@ -1,10 +1,10 @@
-import Taro, { Component } from '@tarojs/taro'
-import '@tarojs/async-await'
-import Index from './pages/index'
-import { Provider } from '@tarojs/mobx'
-import stores from './stores/index'
+import Taro, { Component } from "@tarojs/taro";
+import "@tarojs/async-await";
+import Index from "@pages/index";
+import { Provider } from "@tarojs/mobx";
+import stores from "./stores/index";
 
-import './app.scss'
+import "./app.scss";
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -13,36 +13,33 @@ import './app.scss'
 // }
 
 class App extends Component {
-
   config = {
-    pages: [
-      'pages/index/index'
-    ],
+    pages: ["pages/index/index"],
     window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      backgroundTextStyle: "light",
+      navigationBarBackgroundColor: "#fff",
+      navigationBarTitleText: "WeChat",
+      navigationBarTextStyle: "black"
     }
-  }
+  };
 
-  componentDidMount () {}
+  componentDidMount() {}
 
-  componentDidShow () {}
+  componentDidShow() {}
 
-  componentDidHide () {}
+  componentDidHide() {}
 
-  componentDidCatchError () {}
+  componentDidCatchError() {}
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render () {
+  render() {
     return (
       <Provider store={stores}>
-       <Index />
+        <Index />
       </Provider>
-    )
+    );
   }
 }
 
-Taro.render(<App />, document.getElementById('app'))
+Taro.render(<App />, document.getElementById("app"));
