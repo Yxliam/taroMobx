@@ -1,5 +1,16 @@
 import Taro, { hideToast } from "@tarojs/taro";
 import config from "../config/index";
+const {
+  isArray,
+  isBoolean,
+  isNumber,
+  isString,
+  isRegExp,
+  isObject,
+  isDate,
+  isError,
+  isFunction
+} = require("core-util-is");
 function formatNumber(n) {
   n = n.toString();
   return n[1] ? n : "0" + n;
@@ -9,8 +20,32 @@ const sessionKey = "taro-js-session";
 let reLoginTime = 1;
 
 const helper = {
-  isEmpty(value) {
-    return typeof value === "undefined" || value === null || value === "";
+  isArray: isArray(),
+  isNumber: isNumber(),
+  isFunction: isFunction(),
+  isEmpty(obj) {
+    if (isTrueEmpty(obj)) return true;
+    if (isRegExp(obj)) {
+      return false;
+    } else if (isDate(obj)) {
+      return false;
+    } else if (isError(obj)) {
+      return false;
+    } else if (isArray(obj)) {
+      return obj.length === 0;
+    } else if (isString(obj)) {
+      return obj.length === 0;
+    } else if (isNumber(obj)) {
+      return obj === 0;
+    } else if (isBoolean(obj)) {
+      return !obj;
+    } else if (isObject(obj)) {
+      for (const key in obj) {
+        return false && key; // only for eslint
+      }
+      return true;
+    }
+    return false;
   },
 
   debounce(fn, delay = 500) {
