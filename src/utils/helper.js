@@ -1,16 +1,5 @@
 import Taro, { hideToast } from "@tarojs/taro";
 import config from "../config/index";
-const {
-  isArray,
-  isBoolean,
-  isNumber,
-  isString,
-  isRegExp,
-  isObject,
-  isDate,
-  isError,
-  isFunction
-} = require("core-util-is");
 function formatNumber(n) {
   n = n.toString();
   return n[1] ? n : "0" + n;
@@ -20,32 +9,8 @@ const sessionKey = "taro-js-session";
 let reLoginTime = 1;
 
 const helper = {
-  isArray: isArray(),
-  isNumber: isNumber(),
-  isFunction: isFunction(),
-  isEmpty(obj) {
-    if (isTrueEmpty(obj)) return true;
-    if (isRegExp(obj)) {
-      return false;
-    } else if (isDate(obj)) {
-      return false;
-    } else if (isError(obj)) {
-      return false;
-    } else if (isArray(obj)) {
-      return obj.length === 0;
-    } else if (isString(obj)) {
-      return obj.length === 0;
-    } else if (isNumber(obj)) {
-      return obj === 0;
-    } else if (isBoolean(obj)) {
-      return !obj;
-    } else if (isObject(obj)) {
-      for (const key in obj) {
-        return false && key; // only for eslint
-      }
-      return true;
-    }
-    return false;
+  isEmpty(value) {
+    return typeof value === "undefined" || value === null || value === "";
   },
 
   debounce(fn, delay = 500) {
@@ -162,6 +127,79 @@ const helper = {
   },
   timeStamp() {
     return parseInt(new Date().getTime() / 1000);
+  },
+  objectToString(o) {
+    return Object.prototype.toString.call(o);
+  },
+  isArray(arg) {
+    if (Array.isArray) {
+      return Array.isArray(arg);
+    }
+    return objectToString(arg) === "[object Array]";
+  },
+
+  isBoolean(arg) {
+    return typeof arg === "boolean";
+  },
+
+  isNull(arg) {
+    return arg === null;
+  },
+
+  isNumber(arg) {
+    return typeof arg === "number";
+  },
+
+  isString(arg) {
+    return typeof arg === "string";
+  },
+
+  isRegExp(re) {
+    return helper.objectToString(re) === "[object RegExp]";
+  },
+
+  isObject(arg) {
+    return typeof arg === "object" && arg !== null;
+  },
+
+  isDate(d) {
+    return helper.objectToString(d) === "[object Date]";
+  },
+
+  isError(e) {
+    return helper.objectToString(e) === "[object Error]" || e instanceof Error;
+  },
+
+  isFunction(arg) {
+    return typeof arg === "function";
+  },
+  isTrueEmpty(obj) {
+    if (obj === undefined || obj === null || obj === "") return true;
+    if (helper.isNumber(obj) && isNaN(obj)) return true;
+    return false;
+  },
+  isEmpty(obj) {
+    if (helper.isTrueEmpty(obj)) return true;
+    if (helper.isRegExp(obj)) {
+      return false;
+    } else if (helper.isDate(obj)) {
+      return false;
+    } else if (helper.isError(obj)) {
+      return false;
+    } else if (helper.isArray(obj)) {
+      return obj.length === 0;
+    } else if (helper.isString(obj)) {
+      return obj.length === 0;
+    } else if (helper.isNumber(obj)) {
+      return obj === 0;
+    } else if (helper.isBoolean(obj)) {
+      return !obj;
+    } else if (helper.isObject(obj)) {
+      for (const key in obj) {
+        return false && key; // only for eslint
+      }
+      return true;
+    }
   }
 };
 
