@@ -1,5 +1,5 @@
 import Taro, { hideToast } from "@tarojs/taro";
-import config from "../config/index";
+import config from "../../../config/index";
 function formatNumber(n) {
   n = n.toString();
   return n[1] ? n : "0" + n;
