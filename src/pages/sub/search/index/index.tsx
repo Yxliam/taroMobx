@@ -35,7 +35,7 @@ export default class Index extends Component<IProps, State> {
     return (
       <View className="index">
         <View>{clickCount}</View>
-        <Button onClick={this.clickHandle}>sub测试</Button>
+        <Button onClick={this.clickHandle}>sub11测试</Button>
       </View>
     );
   }
