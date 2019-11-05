@@ -1,6 +1,10 @@
-import Taro from "@tarojs/taro";
-import helper from "../utils/helper";
+import utils from "@/utils/";
 
-export async function getList() {
-  return helper.ajax(helper.postParams(`url`));
-}
+export const getUser = data => {
+  return utils.request({
+    url: `${utils.API_PATH}/v1/user`,
+    method: "get",
+    data,
+    isLogin: true
+  });
+};
