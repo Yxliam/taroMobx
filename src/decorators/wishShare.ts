@@ -5,7 +5,7 @@ export interface ShareConfig {
 }
 
 export default function share(option?: ShareConfig) {
-  return WrappedComponent => {
+  return (WrappedComponent: any) => {
     class WishShare extends WrappedComponent {
       onShareAppMessage() {
         const shareInfo = super.onShareAppMessage

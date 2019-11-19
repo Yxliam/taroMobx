@@ -16,15 +16,13 @@ class App extends Component {
   config: Config = {
     pages: ["pages/index/index"],
     // 分包加载
-    subPackages: [
-      {
-        root: "pages/sub/search",
-        name: "search",
-        pages: [
-          "index/index" // 搜索页面
-        ]
-      }
-    ],
+    // subPackages: [
+    //   {
+    //     root: "pages/sub/logistics",
+    //     name: "logistics",
+    //     pages: ["index/index"]
+    //   },
+    // ],
     window: {
       backgroundTextStyle: "light",
       navigationBarBackgroundColor: "#fff",
@@ -32,6 +30,8 @@ class App extends Component {
       navigationBarTextStyle: "black"
     }
   };
+
+  componentWillMount() {}
 
   componentDidMount() {}
 

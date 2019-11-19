@@ -1,16 +1,16 @@
 {
-	"miniprogramRoot": "dist/",
-	"projectname": "taroMobx",
-	"description": "",
-	"appid": "wxd8865f42157890d7",
-	"setting": {
-		"urlCheck": true,
-		"es6": false,
-		"postcss": false,
-		"minified": false
-	},
-	"compileType": "miniprogram",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {}
+  "miniprogramRoot": "dist/",
+  "projectname": "taroMobx",
+  "description": "",
+  "appid": "wx083c1d819ed13d6f",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {}
 }

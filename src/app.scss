@@ -1,6 +1,26 @@
 @import "./assets/css/base.scss";
+@import "./assets/common/reset.scss";
+@import "./assets/common/common.scss";
+@import '~eft-cool-taro-ui/style/index.scss'; //上拉需要添加
+
+
+.icon {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 //下面是taro-ui 的主题颜色
-// $color-brand: $color-primary-red;
-// $color-brand-light: $color-primary-red;
-// $color-brand-dark: $color-primary-deepred;
+$color-brand: $color-primary-black;
+$color-brand-light: $color-primary-black;
+$color-brand-dark: $color-primary-gray;
+
+.at-input {
+  padding-left: 16px !important;
+  margin-left: 0 !important;
+}
+
+//$color-primary-black
 @import "~taro-ui/dist/style/index.scss";

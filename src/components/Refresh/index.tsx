@@ -173,6 +173,8 @@ export default class Refresh extends Component {
     let downDragStyle = this.state.downDragStyle;
     let upDragStyle = this.state.upDragStyle;
     const { isNone } = this.state;
+    console.log("props");
+    console.log(this.props.children);
     return (
       <View className="dragUpdataPage">
         <View className="downDragBox" style={downDragStyle}>

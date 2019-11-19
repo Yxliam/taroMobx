@@ -1,18 +1,15 @@
 import Taro, { Component, Config } from "@tarojs/taro";
 import { View, Text, Button } from "@tarojs/components";
-import { observer, inject } from "@tarojs/mobx";
-import WishShare from "../../decorators/wishShare";
-import Refresh from "@components/Refresh";
 import "./index.scss";
 
 interface IProps {}
 
-const initialState = { clickCount: 0 };
+const initialState = {};
 type State = Readonly<typeof initialState>;
 
-@inject("commonStore")
-@observer
-@WishShare()
+// @inject("commonStore")
+// @observer
+// @WishShare()
 export default class Index extends Component<IProps, State> {
   state: State = initialState;
   // eslint-disable-next-line react/sort-comp
@@ -30,63 +27,7 @@ export default class Index extends Component<IProps, State> {
 
   componentDidHide() {}
 
-  clickHandle = () => {
-    const { clickCount } = this.state;
-    this.setState((preState: State) => ({
-      clickCount: clickCount + 1
-    }));
-    Taro.redirectTo({ url: "/pages/sub/search/index/index" });
-  };
-
   render() {
-    const { clickCount } = this.state;
-    return (
-      <View className="index">
-        {/* <View>{clickCount}</View>
-        <Button onClick={this.clickHandle}>点击我</Button> */}
-        <Refresh
-          onPull={() => {
-            console.log("11");
-          }}
-          onDown={() => {}}
-          Upper={() => {}}
-          Lower={() => {}}
-        >
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View> <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View> <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View> <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>1111</View>
-          <View>gggg</View>
-        </Refresh>
-      </View>
-    );
+    return <View className="wrapper">hello</View>;
   }
 }

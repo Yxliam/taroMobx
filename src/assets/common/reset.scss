@@ -1,0 +1,91 @@
+/* reset.css V1.6  Start*/
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+form,
+button,
+input,
+textarea,
+th,
+td {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+body,
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i {
+    font: normal 12px "Helvetica Neue", "Microsoft YaHei", Helvetica, STHeiTi, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+ul,
+ol,
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+a:hover {
+    text-decoration: none;
+}
+img {
+    vertical-align: middle;
+    border: 0;
+}
+button,
+input,
+textarea {
+    font-size: 100%;
+    vertical-align: middle;
+    outline: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+div,
+a {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+html,body {
+  // background: #efefef;
+  background: #fff;
+  height: 100%;
+}
+#app {
+  height: 100%;
+}
+// .clearfix:before,.clearfix:after{
+//     content:"";
+//     display:table;
+// }
+// .clearfix:after{clear:both;}
+// .clearfix{
+//     *zoom:1;/*IE/7/6*/
+// } 

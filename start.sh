@@ -60,6 +60,7 @@ runEnvironment(){
    elif [ "$isDev" = 3 ] ; then
       tip='正在为你打包'$dev'的生产环境请稍后～～～'
       cpfile="$NPWD/src/server/production/config.js $NPWD/src/utils/constants";
+      npmDev="run build:$dev"
    else 
       echo "输入异常"
    fi

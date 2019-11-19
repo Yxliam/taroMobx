@@ -37,3 +37,8 @@ page {
 .mb20 {
   margin-bottom: 20px
 }
+
+//小程序不支持*
+// * {
+//   touch-action: pan-y;
+// }

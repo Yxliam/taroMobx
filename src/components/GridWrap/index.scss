@@ -1,0 +1,18 @@
+.grid-wrapper {
+  padding: 20px;
+
+  .grid-title {
+    font-size: 35px;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+      width: 8px;
+      height: 35px;
+      border-left: 10px;
+      background: black;
+    }
+  }
+}

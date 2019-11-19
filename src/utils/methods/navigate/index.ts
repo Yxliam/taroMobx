@@ -8,7 +8,7 @@ import Qs from "qs";
  *                                  '/pages/main/index/index'
  * @param   {Object}    params      参数（非必传）
  */
-export const goToPage = (route, params) => {
+export const goToPage = (route: string, params?: any) => {
   let url;
   if (route) {
     url = params ? `${route}?${Qs.stringify(params)}` : route;
@@ -29,8 +29,8 @@ export const goToPage = (route, params) => {
  * @param   {string}    route       返回的页面的路由路径（非必传）
  *                                  PS： 参数为空，直接返回上一页面
  */
-export const backPage = params => {
-  let delta = "";
+export const backPage = (params?: any) => {
+  let delta: number | undefined = undefined;
   if (params && params.delta) {
     const deltaTemp = Number(params.delta);
     if (deltaTemp) {
@@ -64,7 +64,7 @@ export const backPage = params => {
  *                                  '/pages/index/index'
  * @param   {Object}    params      参数（非必传）
  */
-export const openPage = (route, params) => {
+export const openPage = (route: string, params?: any) => {
   let url;
   if (route) {
     url = params ? `${route}?${Qs.stringify(params)}` : route;
@@ -82,7 +82,7 @@ export const openPage = (route, params) => {
  *                                  '/pages/main/index/index'
  * @param   {Object}    params      参数（非必传）
  */
-export const reLaunch = (route, params) => {
+export const reLaunch = (route: string, params: any) => {
   let url;
   if (route) {
     url = params ? `${route}?${Qs.stringify(params)}` : route;
@@ -102,7 +102,7 @@ export const reLaunch = (route, params) => {
  * @tips                page.$component.componentDidMount
  *                      调用该页面的onShow方法以触发刷新该页面
  */
-export const switchTab = (route, params) => {
+export const switchTab = (route: string, params: any) => {
   let url;
   if (route) {
     url = params ? `${route}?${Qs.stringify(params)}` : route;
@@ -115,6 +115,6 @@ export const switchTab = (route, params) => {
 /**
  * 设置导航栏标题
  */
-export const setNavigationBarTitle = async title => {
+export const setNavigationBarTitle = async (title: string) => {
   return await Taro.setNavigationBarTitle({ title });
 };

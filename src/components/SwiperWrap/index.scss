@@ -1,0 +1,17 @@
+.swiper-container {
+  height: 300px;
+  width: 100%;
+
+  .swiper-item-container {
+    width: 100%;
+  }
+
+  .swiper-image {
+    height: 300px;
+    width: 100%;
+
+    >img {
+      width: 100%;
+    }
+  }
+}
